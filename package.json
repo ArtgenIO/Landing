@@ -1,0 +1,24 @@
+{
+  "name": "@artgenio/landing",
+  "version": "1.0.0",
+  "description": "Landing site for Artgen.IO",
+  "repository": "https://github.com/ArtgenIO/Landing",
+  "author": "Varga Zsolt <hello@hisorange.me>",
+  "license": "MIT",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "rimraf dist && parcel build"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.0",
+    "cssnano": "^5.0.11",
+    "dat.gui": "^0.7.7",
+    "parcel": "^2.0.1",
+    "postcss": "^8.3.11",
+    "postcss-import": "^14.0.2",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^2.2.19",
+    "three": "^0.134.0"
+  }
+}
