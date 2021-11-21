@@ -6,7 +6,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
-import './main.scss';
 
 const textureLoader = new THREE.TextureLoader();
 const shape = textureLoader.load(
@@ -24,13 +23,13 @@ config.count = 70000;
 config.size = 0.014;
 config.radius = 5.5;
 config.branches = 6;
-config.spin = -1.75;
+config.spin = -2;
 config.randomness = 8.5;
 config.randomnessPower = 4.9;
 config.stars = 18000;
 config.starColor = '#37393f';
-config.insideColor = '#ff6040';
-config.outsideColor = '#521b82';
+config.insideColor = '#2df0b2';
+config.outsideColor = '#4b21a8';
 
 let bgStarsGeometry = null;
 let bgStarsMaterial = null;
@@ -179,6 +178,7 @@ camera.position.x = 5;
 camera.position.y = 2.5;
 camera.position.z = 3;
 camera.lookAt(0, 5, 0);
+
 scene.add(camera);
 
 // Controls
@@ -221,8 +221,9 @@ const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
   //Update the camera
-  points.rotation.y = elapsedTime * 0.025;
-  bgStars.rotation.y = -elapsedTime * 0.04;
+  points.rotation.y = -elapsedTime * 0.02;
+  bgStars.rotation.y = -elapsedTime * 0.002;
+  camera.rotation.x = 30;
 
   // Render
   //renderer.render(scene, camera);

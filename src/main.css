@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html,
+body {
+  background-color: #151719;
+  background-image: url('img/waves.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100%;
+}
+
+.gruppo {
+  font-family: 'Gruppo', cursive;
+}
+
+h2.gruppo {
+  color: #46bdc6;
+}
+
+img.feature {
+  border: 1px solid #37393f;
+  box-shadow: 0 0 5px 5px #101010;
+  border-radius: 6px;
+}
+
+.brush {
+  z-index: -1;
+  left: -40%;
+  top: -25px;
+  background-image: url('./img/stroke.svg');
+  background-repeat: no-repeat;
+  background-size: 100% 250%;
+  background-position: -20px center;
+
+  display: block;
+
+  width: 170%;
+  height: 192px;
+
+  opacity: 85%;
+}
+
+.menu > li {
+  @apply px-6 py-4 font-normal border-b-2 border-blue-400 border-opacity-0 hover:border-opacity-100 hover:text-blue-400 duration-200 cursor-pointer;
+}
+
+.cta {
+  @apply py-2 px-6 rounded-md focus:outline-none focus:ring shadow-sm hover:shadow-none transition-all duration-300 h-10 mr-4;
+
+  font-weight: 600;
+  color: #37393f;
+  background-color: #46bdc6;
+}
+
+.cta:hover {
+  background-color: #00f1fd;
+}
+
+section > h2.gruppo {
+  border-bottom: 1px dashed #37393f;
+}

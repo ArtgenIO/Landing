@@ -1,7 +1,9 @@
 {
   "plugins": {
-    "postcss-import": {},
     "autoprefixer": {},
-    "cssnano": {}
+    "cssnano": {},
+    "postcss-import": {},
+    "tailwindcss": {},
+    "tailwindcss/nesting": {}
   }
 }
