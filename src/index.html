@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>Artgen IO - Next Generation, Headless CMS!</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -10,30 +12,78 @@
       href="https://fonts.googleapis.com/css2?family=Gruppo&display=swap"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <title>Artgen IO - Work Less, Do More!</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="img/favicon.png" type="image/png" />
   </head>
-  <body>
-    <div class="sticky top-0 left-0 right-0 navbar h-12 z-10">
-      <div class="mx-auto w-2/3">
-        <a href="https://github.com/artgenio/core">
-          <img
-            src="github-icon.svg"
-            class="w-10 h-10 pt-2 ml-4 float-right cursor-pointer"
-          />
-        </a>
-      </div>
-    </div>
-    <canvas class="webgl"></canvas>
 
-    <div class="heading">
-      <h1 class="text-8xl">Artgen</h1>
-      <h4 class="text-2xl">Work Less, Do More!</h4>
-    </div>
+  <body>
+    <section class="hero is-dark is-fullheight">
+      <canvas class="webgl"></canvas>
+
+      <div class="cover"></div>
+
+      <div class="hero-body">
+        <div class="container">
+          <p class="title is-1">Artgen</p>
+          <p class="subtitle is-5">Next Generation, Headless CMS!</p>
+        </div>
+      </div>
+
+      <div class="hero-foot">
+        <nav class="tabs is-boxed is-fullwidth">
+          <div class="container">
+            <ul>
+              <li>
+                <a href="#overview">Overview</a>
+              </li>
+              <li>
+                <a href="#features">Features</a>
+              </li>
+
+              <li>
+                <a href="https://github.com/ArtgenIO/Core/wiki" target="_blank"
+                  >Documentation</a
+                >
+              </li>
+              <li>
+                <a href="https://demo.artgen.io" target="_blank">Live Demo</a>
+              </li>
+              <li href="https://github.com/ArtgenIO/Core" target="_blank">
+                <a>Resources</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <main class="container" style="min-height: 1800px">
+      <section class="section is-medium">
+        <a name="overview"></a>
+        <h1 class="title">Why You want to use Artgen?</h1>
+        <span class="subtitle">
+          <p>
+            Artgen is a headless CMS, but unlike most, it comes as with a
+            <strong>no code</strong>
+            package, You are not limited to the logic decided by the developers,
+            you can easily implement your business idea on a drawboard and get
+            the application live as you edit it.
+          </p>
+          <p>
+            With the available features, you can drive your business without
+            limitations, and without the need for expensive developments,
+            everything is in your hand.
+          </p>
+        </span>
+      </section>
+
+      <div>... content description comes here....</div>
+    </main>
   </body>
 
-  <script src="./main.js" type="module"></script>
+  <!-- Galaxy background -->
+  <script src="main.js" type="module"></script>
+  <!-- Usage telemetry -->
   <script
     async
     defer

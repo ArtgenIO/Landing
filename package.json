@@ -12,13 +12,21 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.0",
+    "bulma": "^0.9.3",
     "cssnano": "^5.0.11",
     "dat.gui": "^0.7.7",
     "parcel": "^2.0.1",
     "postcss": "^8.3.11",
     "postcss-import": "^14.0.2",
+    "postcss-loader": "^6.2.0",
+    "postcss-modules": "^4.2.2",
+    "posthtml-include": "^1.7.2",
+    "posthtml-loader": "^2.0.1",
     "rimraf": "^3.0.2",
-    "tailwindcss": "^2.2.19",
+    "sass": "^1.43.4",
     "three": "^0.134.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.1"
   }
 }

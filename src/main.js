@@ -3,10 +3,14 @@
 import * as THREE from 'three';
 import { AdditiveBlending } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
+import './main.scss';
 
 const textureLoader = new THREE.TextureLoader();
 const shape = textureLoader.load(
-  new URL('particle.png', import.meta.url).toString(),
+  new URL('img/particle.png', import.meta.url).toString(),
 );
 
 // Canvas
@@ -19,13 +23,13 @@ const config = {};
 config.count = 70000;
 config.size = 0.014;
 config.radius = 5.5;
-config.branches = 8;
-config.spin = -1.24;
+config.branches = 6;
+config.spin = -1.75;
 config.randomness = 8.5;
-config.randomnessPower = 4.5;
+config.randomnessPower = 4.9;
 config.stars = 18000;
 config.starColor = '#37393f';
-config.insideColor = '#ff6030';
+config.insideColor = '#ff6040';
 config.outsideColor = '#521b82';
 
 let bgStarsGeometry = null;
@@ -75,6 +79,7 @@ generateBgStars();
 let geometry = null;
 let material = null;
 let points = null;
+let composer;
 
 function generateGalaxy() {
   if (points !== null) {
@@ -159,6 +164,7 @@ window.addEventListener('resize', () => {
 
   // Update renderer
   renderer.setSize(sizes.width, sizes.height);
+  composer.setSize(sizes.width, sizes.height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
 
@@ -186,6 +192,28 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
+const params = {
+  bloomStrength: 1.0,
+  bloomThreshold: 0.1,
+  bloomRadius: -0.25,
+};
+
+const renderScene = new RenderPass(scene, camera);
+
+const bloomPass = new UnrealBloomPass(
+  new THREE.Vector2(window.innerWidth, window.innerHeight),
+  1.5,
+  0.4,
+  0.85,
+);
+bloomPass.threshold = params.bloomThreshold;
+bloomPass.strength = params.bloomStrength;
+bloomPass.radius = params.bloomRadius;
+
+composer = new EffectComposer(renderer);
+composer.addPass(renderScene);
+composer.addPass(bloomPass);
+
 // Animate
 const clock = new THREE.Clock();
 
@@ -196,11 +224,9 @@ const tick = () => {
   points.rotation.y = elapsedTime * 0.025;
   bgStars.rotation.y = -elapsedTime * 0.04;
 
-  // Update controls
-  controls.update();
-
   // Render
-  renderer.render(scene, camera);
+  //renderer.render(scene, camera);
+  composer.render();
 
   // Call tick again on the next frame
   window.requestAnimationFrame(tick);
