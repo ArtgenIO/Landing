@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Gruppo&family=Roboto+Condensed:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
@@ -23,10 +23,6 @@ body {
   font-family: 'Gruppo', cursive;
 }
 
-h2.gruppo {
-  color: #46bdc6;
-}
-
 .feature img {
   @apply h-48;
 
@@ -35,21 +31,23 @@ h2.gruppo {
   border-radius: 6px;
 }
 
+.feature h2.gruppo {
+  color: #46bdc6;
+}
+
 .brush {
-  z-index: -1;
-  left: -40%;
-  top: -25px;
-  background-image: url('./img/stroke.svg');
-  background-repeat: no-repeat;
+  @apply block opacity-80 bg-no-repeat absolute;
+
+  background-image: url('./img/brush.svg');
   background-size: 100% 250%;
   background-position: -20px center;
 
-  display: block;
+  z-index: -1;
+  left: -40%;
+  top: -25px;
 
   width: 170%;
   height: 192px;
-
-  opacity: 85%;
 }
 
 .menu > li {
