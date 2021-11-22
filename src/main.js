@@ -1,5 +1,6 @@
 // Based on the https://github.com/the-halfbloodprince/GalaxyM1199 project <3
 
+import Gumshoe from 'gumshoejs';
 import * as THREE from 'three';
 import { AdditiveBlending } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
@@ -235,4 +236,7 @@ const tick = () => {
   }
 };
 
-window.onload = () => tick();
+window.onload = () => {
+  tick();
+  new Gumshoe('.menu a');
+};
