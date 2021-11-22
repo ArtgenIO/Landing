@@ -22,6 +22,7 @@
     "three": "^0.134.0"
   },
   "devDependencies": {
+    "@parcel/transformer-less": "^2.0.1",
     "@parcel/transformer-sass": "^2.0.1",
     "postcss-import": "^14.0.2"
   }

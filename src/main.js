@@ -230,7 +230,9 @@ const tick = () => {
   composer.render();
 
   // Call tick again on the next frame
-  window.requestAnimationFrame(tick);
+  if (window.innerWidth < 3000) {
+    window.requestAnimationFrame(tick);
+  }
 };
 
-tick();
+window.onload = () => tick();

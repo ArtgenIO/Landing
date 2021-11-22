@@ -5,16 +5,13 @@
     <title>Artgen IO - Next Generation, Headless CMS!</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://telemetry.artgen.io" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gruppo&display=swap"
-      rel="stylesheet"
-    />
+
+    <!-- Favicons -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="img/favicon.png" type="image/png" />
+
+    <!-- Styling -->
     <link rel="stylesheet" href="main.css" />
   </head>
 
@@ -43,46 +40,67 @@
               <span class="brush absolute"></span>
             </div>
           </div>
+
+          <input
+            type="text"
+            class="
+              rounded-md
+              p-2
+              text-center text-xl text-gray-300
+              absolute
+              font-bold
+              bottom-32
+              left-1/2
+              focus:ring-green-400 focus:text-green-400
+            "
+            style="background-color: #151719; width: 520px; margin-left: -260px"
+            onfocus="javascript:this.select();"
+            value="docker pull -p 80:7200 artgenio/core:latest"
+          />
         </div>
       </div>
     </section>
-    <a name="features" class="-mt-32"></a>
 
     <header
       style="background-color: #25282b"
-      class="header sticky top-0 text-gray-300 shadow-md -mt-14 z-20"
+      class="header sticky top-0 text-gray-300 shadow-md z-20"
     >
-      <div class="container mx-auto">
+      <div class="container px-32 mx-auto">
         <div class="flex items-center justify-between py-02">
-          <!-- logo -->
-          <h1 class="w-64">
+          <!-- Logo -->
+          <h1 class="w-48">
             <a href="https://artgen.io">
               <img src="img/favicon.png" alt="Artgen Logo" class="h-12" />
             </a>
           </h1>
 
-          <!-- navigation -->
+          <!-- Menu -->
           <nav class="nav font-semibold text-lg">
             <ul class="flex items-center menu">
               <li>
-                <a href="#">Overview</a>
+                <a href="#introduction">Introduction</a>
               </li>
               <li>
                 <a href="#features">Features</a>
               </li>
               <li>
-                <a href="#news">News</a>
+                <a href="#about">About Us</a>
               </li>
               <li>
                 <a href="https://github.com/ArtgenIO/Core/wiki"
                   >Documentation</a
                 >
               </li>
+              <li>
+                <a href="https://github.com/orgs/ArtgenIO/projects/1"
+                  >Roadmap</a
+                >
+              </li>
             </ul>
           </nav>
 
-          <!-- buttons --->
-          <div class="w-64 flex justify-end">
+          <!-- CTAs --->
+          <div class="w-48 flex justify-end">
             <a
               href="https://demo.artgen.io/admin"
               target="_blank"
@@ -99,146 +117,336 @@
       </div>
     </header>
 
-    <main class="container pt-16 mx-auto text-gray-300 pb-96">
-      <h1 class="text-8xl gruppo text-right mb-12 content-block">Features</h1>
+    <!-- Content start -->
+    <a name="introduction"></a>
 
-      <section class="clear-both">
-        <img
-          src="img/feature/workflow.png"
-          alt="Workflow Artboard"
-          class="h-64 float-right ml-4 feature"
-        />
+    <main class="container px-32 pt-16 mx-auto text-gray-300 pb-96">
+      <p class="bg-blue-400 p-2 rounded-md text-gray-700 mb-12 text-center">
+        Attention! At this moment the project in it's
+        <strong class="font-bold">alpha preview</strong> phase, and not suitable
+        for production deployment yet!
+      </p>
+
+      <!-- Get Started -->
+      <h1 class="text-7xl gruppo mb-8">Introduction</h1>
+
+      <section class="text-justify">
+        <p>
+          The Artgen Project's main goal is to provide You with an IT solution
+          which does not need developers. Not because we don't love them ♡, but
+          because we want You to be able to run your business without wasting
+          developer's time on scripting simple tasks, and allow your company to
+          concentrate on providing great value to your customers with a system
+          which is <strong>accelerating your growth</strong>, instead of
+          witholding it.
+        </p>
+
+        <br />
+
+        <p>
+          We belive it's important to share, that our main KPI is: How much
+          <strong>human lifetime we saved</strong> by providing your business
+          with a solution which handles not just the data management, but the
+          business logic, and analytics in a simple to use package.
+        </p>
+
+        <br />
+
+        <p>
+          Artgen is your solution for success; By helping You work less, and do
+          more!
+        </p>
+      </section>
+
+      <a name="features"></a>
+      <!-- Features Start -->
+      <h1 class="text-7xl gruppo text-right my-8">Features</h1>
+
+      <section class="feature">
         <h2 class="text-5xl gruppo">Visual Workflow Editor</h2>
-        <p class="py-4">
-          Do You ever thought how awesome it would be to just add a new feature
-          to your IT system without wasting important development time? Now You
-          can do it, without programming!
-        </p>
-        <p>
-          Workflows in Artgen are not just pretty charts, but are executed by
-          the system. You can easily drag and drop a now functionality, connect
-          it into where You want, and save, that's it!
+
+        <div class="py-4">
+          <img
+            src="img/feature/workflow.png"
+            alt="Workflow Artboard"
+            class="float-right ml-8 mb-8"
+          />
+          <p>
+            Do You ever thought how awesome it would be to just add a new
+            feature to your IT system without wasting important development
+            time? Now You can do it, without programming!
+          </p>
           <br />
+
+          <p>
+            Workflows in Artgen are not just pretty charts, but are executed by
+            the system. You can easily drag and drop a new functionality,
+            connect it into where You want, and save, that's it!
+          </p>
           <br />
-          This revolutionary solution allows You to create your
-          <strong>unique business logic</strong>, without coding.
-        </p>
+
+          <p>
+            This revolutionary solution allows You to create your
+            <strong>unique business logic</strong>, without coding.
+          </p>
+        </div>
+        <br class="clear-both" />
       </section>
 
-      <section class="clear-both pt-36">
-        <img
-          src="img/feature/data-editor.png"
-          alt="Workflow Artboard"
-          class="h-64 float-left mr-6 feature"
-        />
+      <section class="pt-36 feature">
         <h2 class="text-5xl gruppo text-right">Content Editor</h2>
-        <p class="py-4">
-          Data is important, but literally worthless if You can not interact
-          with it! This is why Artgen comes with an
-          <strong>auto generated content editor</strong>. You can see and change
-          everything in the system!
-        </p>
-        <p>
-          And that's not everything, You can create views from any data with a
-          human friendly filtering, and on top of that, You can customize the
-          editors too make content interaction as smooth as possible.
-        </p>
+
+        <div class="py-4">
+          <img
+            src="img/feature/data-editor.png"
+            alt="Workflow Artboard"
+            class="float-left mr-6"
+          />
+
+          <p>
+            Data is important, but literally worthless if You can not interact
+            with it! This is why Artgen comes with an
+            <strong>auto generated content editor</strong>. You can see and
+            change everything in the system!
+          </p>
+          <br />
+
+          <p>
+            And that's not everything, You can create views from any data with a
+            human friendly filtering, and on top of that, You can customize the
+            editors too make content interaction as smooth as possible.
+          </p>
+        </div>
       </section>
 
-      <section class="clear-both pt-36">
-        <img
-          src="img/feature/data-model.png"
-          alt="Workflow Artboard"
-          class="h-64 float-right mr-6 feature"
-        />
-        <h2 class="text-5xl gruppo text-left">Visual Database Editor</h2>
-        <p class="py-4">
-          Have You had the need for new kind of list, and had to wait weeks
-          before You could get it developed? What if I say that You can create
-          and edit databases on an easy to use artboard, and interact with your
-          whole business as a flow of information!
-        </p>
+      <section class="clear-both pt-36 feature">
+        <h2 class="text-5xl gruppo">Visual Database Editor</h2>
+
+        <div class="py-4">
+          <img
+            src="img/feature/data-model.png"
+            alt="Workflow Artboard"
+            class="h-64 float-right mr-6"
+          />
+          <p>
+            Have You had the need for new kind of list, and had to wait weeks
+            before You could get it developed? What if I say that You can create
+            and edit databases on an easy to use artboard, and interact with
+            your whole business as a flow of information!
+          </p>
+          <br />
+
+          <p>
+            You can instantly change the data model and add new functionality!
+            And everything will be generated for it live.
+          </p>
+          <br />
+
+          <p>
+            That is all possible with the
+            <strong>data modeling</strong> artboard, it can turn your SQL
+            database into a beautiful art, and You can be the artist without
+            writing a query again.
+          </p>
+        </div>
+      </section>
+
+      <section class="clear-both pt-36 feature">
+        <h2 class="text-5xl gruppo text-right">Page Builder</h2>
+
+        <div class="py-4">
+          <img
+            src="img/feature/page-editor.png"
+            alt="Page Artboard"
+            class="h-64 float-left mr-6"
+          />
+          <p>
+            Build beautiful web sites with the built in
+            <strong>drag & drop page builder</strong>, You can simply build a
+            new page for your customers in minutes!
+          </p>
+          <br />
+
+          <p>
+            Your marketing team never have to create a new wireframe and wait
+            for the developers to implement it, because the wireframe is
+            deployed as the final product!
+          </p>
+        </div>
+      </section>
+
+      <section class="clear-both pt-36 feature">
+        <h2 class="text-5xl gruppo">Personal Dashboards</h2>
+
+        <div class="py-4">
+          <img
+            src="img/feature/dashboards.png"
+            class="float-right ml-8 mb-8"
+            alt="Workflow Artboard"
+          />
+          <p class="py-4">
+            Goals are important, and without measurements You never know if You
+            go to the right direction or not! This is why Artgen comes with
+            personalized dashboards, pin the most important metrics for You to
+            the home page and see the results you are working on!
+          </p>
+          <br />
+
+          <p>
+            Each and every analytics can be built with a simple user interface
+            and then displayed in the way you want to see it. Wana know how the
+            sales are going for the past month? Just use the analytics builder
+            interface!
+          </p>
+        </div>
+      </section>
+
+      <section class="clear-both pt-36 feature">
+        <h2 class="text-5xl gruppo text-right">User Management</h2>
+
+        <div class="py-4">
+          <img
+            src="img/feature/authentication.png"
+            alt="Page Artboard"
+            class="h-64 float-left mr-6"
+          />
+          <p>
+            Security is important! This is why Artgen comes with a fine grained
+            role based access control system (RBAC), so You can decide who can
+            see what data.
+          </p>
+          <br />
+
+          <p>
+            Artgen provides a way to even limit which rows' which column can be
+            seen or editable for each user in your company, this way You can
+            ensure that no one makes an accidental catasthropic change in your
+            business.
+          </p>
+        </div>
+
+        <br class="clear-both" />
+      </section>
+
+      <section class="pt-36 feature">
+        <h2 class="text-5xl gruppo">API Driven</h2>
+
+        <div class="py-4">
+          <img
+            src="img/feature/openapi.png"
+            alt="Open API Screenshot"
+            class="float-right ml-6 mb-6"
+          />
+          <p>
+            Our system is not just up to the modern standards but leading them.
+            Whenever You create, or import a database the system automatically
+            generates multiple headless endpoint for it.
+          </p>
+          <br />
+
+          <p>
+            We belive in diversity and standards, and this is why we designed
+            the system to support
+            <strong>REST</strong>, <strong>OData</strong>, and
+            <strong>GraphQL</strong>. This allows You to connect external
+            systems and/or integrate Artgen into your existing platform with
+            ease.
+          </p>
+        </div>
+
+        <br class="clear-both" />
+      </section>
+
+      <!-- Features end -->
+
+      <!-- About Us start -->
+      <a name="about"></a>
+      <h1 class="text-7xl gruppo mb-12 mt-12">About Us</h1>
+
+      <section class="text-justify">
         <p>
-          You can instantly change the data model and add new functionality! And
-          everything will be generated for it live.
+          To understand why We are doing this, I have to jump back in time...
         </p>
         <br />
-        <p>
-          That is all possible with the <strong>data modeling</strong> artboard,
-          it can turn your SQL database into a beautiful art, and You can be the
-          artist without writing a query again.
-        </p>
-      </section>
-
-      <section class="clear-both pt-36">
-        <img
-          src="img/feature/page-editor.png"
-          alt="Page Artboard"
-          class="h-64 float-left mr-6 feature"
-        />
-        <h2 class="text-5xl gruppo text-right">Page Builder</h2>
-        <p class="py-4">
-          Build beautiful web sites with the built in
-          <strong>drag & drop page builder</strong>, You can simply build a new
-          page for your customers in minutes!
-        </p>
 
         <p>
-          Your marketing team never have to create a new wireframe and wait for
-          the developers to implement it, because the wireframe is deployed as
-          the final product!
+          For over 20 years, I was watching how programmers spend their lifetime
+          rewriting the same simple scripts for a very similiar outcomes. Each
+          company has their unique need, and as a software engineer it's our
+          responsibility to satisfy it, but when we solved something we should
+          not rewrite the solution over and over. This is why open source is so
+          important for the world.
         </p>
-      </section>
-
-      <section class="clear-both pt-36">
-        <img
-          src="img/feature/dashboards.png"
-          alt="Workflow Artboard"
-          class="h-64 float-right mr-6 feature"
-        />
-        <h2 class="text-5xl gruppo text-left">Personal Dashboards</h2>
-        <p class="py-4">
-          Goals are important, and without measurements You never know if You go
-          to the right direction or not! This is why Artgen comes with
-          personalized dashboards, pin the most important metrics for You to the
-          home page and see the results you are working on!
-        </p>
+        <br />
 
         <p>
-          Each and every analytics can be built with a simple user interface and
-          then displayed in the way you want to see it. Wana know how the sales
-          are going for the past month? Just use the analytics builder
-          interface!
+          This project's base idea started in 2016' january when our company
+          took on an impossible 3 month deadline to create an ecommerce engine
+          from ground zero, because the customer's need was so unique that none
+          of the existing open source solution could be hacked to serve it. I
+          knew that we could not deliver a project which had over 740~
+          requirements with a standard project flow. So, I started to draft out
+          a simple code generator, because most of the basic work we code is
+          CRUD management. By simply designing the data model and generating
+          every basic operation and user interface for it, we only had the
+          business logic left, and with this we were able to release an MVP in 3
+          month, from that point we just did what an agile company do and
+          reiterated the needs every week.
         </p>
-      </section>
-
-      <section class="clear-both pt-36">
-        <img
-          src="img/feature/authentication.png"
-          alt="Page Artboard"
-          class="h-64 float-left mr-6 feature"
-        />
-        <h2 class="text-5xl gruppo text-right">User Management</h2>
-        <p class="py-4">
-          Security is important! This is why Artgen comes with a fine grained
-          role based access control system (RBAC), so You can decide who can see
-          what data.
-        </p>
+        <br />
 
         <p>
-          Artgen provides a way to even limit which rows' which column can be
-          seen or editable for each user in your company, this way You can
-          ensure that no one makes an accidental catasthropic change in your
-          business.
+          So, this was the first commit under the "Artgen" name, which was just
+          an abbreviation for <strong>Art of Code Generation</strong>, because
+          my goal was to get 98% of the code base generated in the first two
+          week. And use the remaining time to implement the business logic.
         </p>
+        <br />
+
+        <p>
+          Every since that time, I was experimenting with differnt approaches,
+          first logical approach was to just abstract the code and build
+          resources from simple descriptors. But, overtime the code becomes so
+          entangled that it is not possible to release new features without
+          breaking and messing up the code base.
+        </p>
+        <br />
+
+        <p>
+          My next approach was to write a higher level DSL and transpile it into
+          a lower level executable, this can be done and solves the entanglement
+          and with just a bit of event sourced magic it can be used for huge
+          projects with multiple independent team, but it still requires coding
+          and the developers have to learn a new language. It's a no go.
+        </p>
+        <br />
+
+        <p>
+          Finally, at 2021' summer I took a 3 month break from working and
+          started to experiment with no code / low code platforms. And over the
+          summer I have learned that a headless CMS with a workflow engine can
+          solve both of the problem. The simple approach of bringing everything
+          to a user interface and handle the DSL as a flow chart, solves the
+          business logic problem, and the CMS' data abstracting solves the
+          entaglement.
+        </p>
+        <br />
+
+        <p>
+          With this knowledge I have worked out a proof of concept which was
+          able to build a SaaS application without writing a line of code. And
+          this is where we decided with my Wife to start a project which finally
+          tackles the fundamental problem. At this moment we are working hard
+          toward a stable open source platform which will be able to bring
+          business ideas to reality. Even for those whom can't spend millions on
+          developments, and we will save developers from writing boring and
+          repetative scripts.
+        </p>
+        <br />
+
+        <p class="text-right italic">With love, Team VaVa!</p>
       </section>
-
-      <a name="news"></a>
-      <h1 class="text-8xl gruppo text-left py-12 content-block clear-both">
-        News
-      </h1>
-
-      <div class="text-center py-16">Coming Soon</div>
+      <!-- About Us end -->
     </main>
   </body>
 
