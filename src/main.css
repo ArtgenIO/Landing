@@ -6,6 +6,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import 'simplelightbox/dist/simple-lightbox.css';
+
 html,
 body {
   background-color: #151719;
@@ -79,4 +81,9 @@ body {
 
 section > h2.gruppo {
   border-bottom: 1px dashed #37393f;
+}
+
+.sl-overlay {
+  background-color: #101010 !important;
+  opacity: 96%;
 }

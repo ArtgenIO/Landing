@@ -4767,6 +4767,11 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
+simplelightbox@^2.10.1:
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/simplelightbox/-/simplelightbox-2.10.1.tgz#623bc09a1f3f87ad943b8c5d94d5dec07de9b9e3"
+  integrity sha512-1NMFYrrC7sd/4uOlRVmqvKRsyab1Z+ak53PLWH+UOLBWL/UL4TFezfOcEZ3e+SSmFgBi7A2cA9MCYp1SdL/cJQ==
+
 slash@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"

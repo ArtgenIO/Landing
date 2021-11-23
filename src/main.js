@@ -1,6 +1,7 @@
 // Based on the https://github.com/the-halfbloodprince/GalaxyM1199 project <3
 
 import Gumshoe from 'gumshoejs';
+import SimpleLightbox from 'simplelightbox';
 import {
   AdditiveBlending,
   BufferAttribute,
@@ -246,6 +247,17 @@ const tick = () => {
 window.onload = () => {
   tick();
   new Gumshoe('.menu a');
+
+  const lightbox = new SimpleLightbox('.feature > div > a', {
+    overlay: true,
+    spinner: true,
+  });
+
+  lightbox.on('show.simplelightbox', () => {
+    if (umami) {
+      umami('lightbox view');
+    }
+  });
 };
 
 window.createScreenShot = () => {

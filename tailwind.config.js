@@ -1,6 +1,10 @@
 module.exports = {
   mode: 'jit',
-  purge: ['./src/index.html'],
+  purge: {
+    content: ['./src/index.html'],
+    safelist: ['simple-lightbox'],
+    safelistPatterns: [/^sl-/],
+  },
   darkMode: true, // or 'media' or 'class'
   theme: {},
   variants: {},
