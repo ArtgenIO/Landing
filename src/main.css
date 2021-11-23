@@ -24,6 +24,25 @@ body {
   background-size: cover;
 }
 
+.brush {
+  @apply block opacity-80 bg-no-repeat absolute;
+
+  background-image: url('./img/brush.svg');
+  background-size: 100% 250%;
+  background-position: -20px center;
+
+  z-index: -1;
+  left: -40%;
+  top: -25px;
+
+  width: 170%;
+  height: 192px;
+}
+
+.header {
+  @apply sticky top-0 text-gray-300 shadow-md z-20;
+}
+
 .feature > h2 {
   font-weight: 400;
 }
@@ -41,34 +60,38 @@ body {
 }
 
 .feature h2.gruppo {
+  @apply text-xl font-bold md:font-thin md:text-5xl;
+
   color: #46bdc6;
 }
 
-.brush {
-  @apply block opacity-80 bg-no-repeat absolute;
-
-  background-image: url('./img/brush.svg');
-  background-size: 100% 250%;
-  background-position: -20px center;
-
-  z-index: -1;
-  left: -40%;
-  top: -25px;
-
-  width: 170%;
-  height: 192px;
+.menu > li > a {
+  @apply py-3 px-6 block;
 }
 
 .menu > li {
-  @apply px-6 py-4 font-normal border-b-2 border-blue-400 border-opacity-0 hover:border-opacity-100 hover:text-blue-400 duration-200 cursor-pointer;
+  @apply font-normal border-b-2 duration-200 cursor-pointer;
+
+  border-color: transparent;
 }
 
 .menu > li.active {
-  @apply border-opacity-100 text-blue-400;
+  border-color: #46bdc6;
+  color: #46bdc6;
+}
+.menu > li:hover {
+  border-color: #00f1fd;
+  color: #00f1fd;
+}
+
+.info-block,
+.cta,
+.menu > li {
+  @apply transition-all duration-300;
 }
 
 .cta {
-  @apply py-2 px-6 rounded-md focus:outline-none focus:ring shadow-sm hover:shadow-none transition-all duration-300 h-10 mr-4;
+  @apply py-2 px-6 rounded-md focus:outline-none focus:ring shadow-sm hover:shadow-none h-10 mr-4;
 
   font-weight: 600;
   color: #37393f;
@@ -77,6 +100,10 @@ body {
 
 .cta:hover {
   background-color: #00f1fd;
+}
+
+.info-block {
+  @apply bg-blue-500;
 }
 
 section > h2.gruppo {

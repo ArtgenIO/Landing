@@ -272,6 +272,13 @@ window.onload = () => {
   lightbox.on('changed.simplelightbox', () => {
     if (umami) umami('lightbox changed');
   });
+
+  const btn = document.querySelector('button.mobile-menu-button');
+  const menu = document.querySelector('.menu-block');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
 };
 
 /*
