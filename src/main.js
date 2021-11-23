@@ -1,25 +1,41 @@
 // Based on the https://github.com/the-halfbloodprince/GalaxyM1199 project <3
 
 import Gumshoe from 'gumshoejs';
-import * as THREE from 'three';
-import { AdditiveBlending } from 'three';
+import {
+  AdditiveBlending,
+  BufferAttribute,
+  BufferGeometry,
+  Clock,
+  Color,
+  PerspectiveCamera,
+  Points,
+  PointsMaterial,
+  Scene,
+  TextureLoader,
+  Vector2,
+  WebGLRenderer,
+} from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 
-const textureLoader = new THREE.TextureLoader();
+const textureLoader = new TextureLoader();
 const shape = textureLoader.load(
   new URL('img/particle.png', import.meta.url).toString(),
 );
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl');
-// Scene
-const scene = new THREE.Scene();
+const scene = new Scene();
+
+// Create default renderer
+const renderer = new WebGLRenderer({
+  canvas: canvas,
+});
+
 // Galaxy Config
 const config = {};
-
 config.count = 70000;
 config.size = 0.014;
 config.radius = 5.5;
@@ -44,7 +60,7 @@ function generateBgStars() {
     scene.remove(bgStars);
   }
 
-  bgStarsGeometry = new THREE.BufferGeometry();
+  bgStarsGeometry = new BufferGeometry();
   const bgStarsPositions = new Float32Array(config.stars * 3);
 
   for (let j = 0; j < config.stars; j++) {
@@ -55,10 +71,10 @@ function generateBgStars() {
 
   bgStarsGeometry.setAttribute(
     'position',
-    new THREE.BufferAttribute(bgStarsPositions, 3),
+    new BufferAttribute(bgStarsPositions, 3),
   );
 
-  bgStarsMaterial = new THREE.PointsMaterial({
+  bgStarsMaterial = new PointsMaterial({
     size: config.size,
     depthWrite: false,
     sizeAttenuation: true,
@@ -68,7 +84,7 @@ function generateBgStars() {
     alphaMap: shape,
   });
 
-  bgStars = new THREE.Points(bgStarsGeometry, bgStarsMaterial);
+  bgStars = new Points(bgStarsGeometry, bgStarsMaterial);
 
   scene.add(bgStars);
 }
@@ -88,13 +104,13 @@ function generateGalaxy() {
     scene.remove(points);
   }
 
-  geometry = new THREE.BufferGeometry();
+  geometry = new BufferGeometry();
 
   const positions = new Float32Array(config.count * 3);
   const colors = new Float32Array(config.count * 3);
 
-  const colorInside = new THREE.Color(config.insideColor);
-  const colorOutside = new THREE.Color(config.outsideColor);
+  const colorInside = new Color(config.insideColor);
+  const colorOutside = new Color(config.outsideColor);
 
   for (let i = 0; i < config.count; i++) {
     //Position
@@ -125,10 +141,10 @@ function generateGalaxy() {
     colors[i * 3 + 2] = mixedColor.b;
   }
 
-  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  geometry.setAttribute('position', new BufferAttribute(positions, 3));
+  geometry.setAttribute('color', new BufferAttribute(colors, 3));
 
-  material = new THREE.PointsMaterial({
+  material = new PointsMaterial({
     color: 'white',
     size: config.size,
     depthWrite: false,
@@ -139,7 +155,7 @@ function generateGalaxy() {
     alphaMap: shape,
   });
 
-  points = new THREE.Points(geometry, material);
+  points = new Points(geometry, material);
   scene.add(points);
 }
 
@@ -169,12 +185,7 @@ window.addEventListener('resize', () => {
 });
 
 // Base camera
-const camera = new THREE.PerspectiveCamera(
-  70,
-  sizes.width / sizes.height,
-  1,
-  50,
-);
+const camera = new PerspectiveCamera(70, sizes.width / sizes.height, 1, 50);
 camera.position.x = 5;
 camera.position.y = 2.5;
 camera.position.z = 3;
@@ -186,10 +197,6 @@ scene.add(camera);
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 
-// Renderer
-const renderer = new THREE.WebGLRenderer({
-  canvas: canvas,
-});
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
@@ -202,7 +209,7 @@ const params = {
 const renderScene = new RenderPass(scene, camera);
 
 const bloomPass = new UnrealBloomPass(
-  new THREE.Vector2(window.innerWidth, window.innerHeight),
+  new Vector2(window.innerWidth, window.innerHeight),
   1.5,
   0.4,
   0.85,
@@ -216,7 +223,7 @@ composer.addPass(renderScene);
 composer.addPass(bloomPass);
 
 // Animate
-const clock = new THREE.Clock();
+const clock = new Clock();
 
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
@@ -239,4 +246,29 @@ const tick = () => {
 window.onload = () => {
   tick();
   new Gumshoe('.menu a');
+};
+
+window.createScreenShot = () => {
+  try {
+    const strMime = 'image/jpeg';
+    const imgData = renderer.domElement.toDataURL(strMime);
+
+    saveFile(imgData.replace(strMime, 'image/octet-stream'), 'test.jpg');
+  } catch (e) {
+    console.log(e);
+    return;
+  }
+};
+
+var saveFile = function (strData, filename) {
+  var link = document.createElement('a');
+  if (typeof link.download === 'string') {
+    document.body.appendChild(link); //Firefox requires the link to be in the body
+    link.download = filename;
+    link.href = strData;
+    link.click();
+    document.body.removeChild(link); //remove the link when done
+  } else {
+    location.replace(uri);
+  }
 };
