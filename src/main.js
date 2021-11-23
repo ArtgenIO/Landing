@@ -246,7 +246,19 @@ const tick = () => {
 
 window.onload = () => {
   tick();
-  new Gumshoe('.menu a');
+  new Gumshoe('.menu a', {
+    events: true,
+  });
+
+  document.addEventListener(
+    'gumshoeActivate',
+    function (event) {
+      if (umami && event?.detail?.content?.name) {
+        umami(`scroll ${event.detail.content.name}`);
+      }
+    },
+    false,
+  );
 
   const lightbox = new SimpleLightbox('.feature > div > a', {
     overlay: true,
@@ -254,12 +266,15 @@ window.onload = () => {
   });
 
   lightbox.on('show.simplelightbox', () => {
-    if (umami) {
-      umami('lightbox view');
-    }
+    if (umami) umami('lightbox view');
+  });
+
+  lightbox.on('changed.simplelightbox', () => {
+    if (umami) umami('lightbox changed');
   });
 };
 
+/*
 window.createScreenShot = () => {
   try {
     const strMime = 'image/jpeg';
@@ -284,3 +299,4 @@ var saveFile = function (strData, filename) {
     location.replace(uri);
   }
 };
+*/
