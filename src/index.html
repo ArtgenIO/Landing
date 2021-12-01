@@ -79,11 +79,11 @@
                 focus:ring-green-400 focus:text-green-400
                 w-full
                 mx-auto
-                umami--click--docker-pull
+                umami--click--docker-run
               "
               style="background-color: #151719"
               onfocus="javascript:this.select();"
-              value="docker pull -p 80:7200 artgenio/core:latest"
+              value="docker run -d -p 80:7200 artgenio/core:latest"
             />
           </div>
         </div>
