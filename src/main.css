@@ -28,7 +28,6 @@ main h1 {
 
 .hero {
   background-color: #101010;
-  background-image: url('./img/galaxy.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -53,17 +52,9 @@ main h1 {
 }
 
 .feature img {
-  @apply h-48;
+  @apply h-48 rounded-sm;
 
-  border: 1px solid #37393f;
   box-shadow: 0 0 5px 5px #101010;
-  border-radius: 6px;
-}
-
-.feature h2.gruppo {
-  @apply text-xl font-bold md:font-thin md:text-5xl;
-
-  color: #46bdc6;
 }
 
 .menu > li > a {
@@ -85,7 +76,6 @@ main h1 {
   color: #00f1fd;
 }
 
-.info-block,
 .cta,
 .menu > li {
   @apply transition-all duration-300;
@@ -120,4 +110,7 @@ section.feature > h2 > span {
 
 footer a {
   @apply text-gray-400 hover:text-white;
+}
+footer h2 {
+  @apply text-xl;
 }
