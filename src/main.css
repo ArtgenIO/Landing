@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue');
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
@@ -10,11 +10,20 @@
 
 html,
 body {
-  background-color: #151719;
+  @apply scrollbar bg-midnight-800 scrollbar-thumb-midnight-400 scrollbar-track-midnight-700 scrollbar-w-2 overflow-x-hidden text-midnight-200;
+
   background-image: url('img/squares.svg');
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100%;
+}
+
+header {
+  @apply bg-midnight-900 fixed top-0 left-0 right-0 text-gray-300 shadow-md z-20;
+}
+
+main h1 {
+  @apply text-midnight-200;
 }
 
 .hero {
@@ -28,27 +37,19 @@ body {
   @apply block opacity-80 bg-no-repeat absolute;
 
   background-image: url('./img/brush.svg');
-  background-size: 100% 250%;
+  background-size: 100% 200%;
   background-position: -20px center;
 
   z-index: -1;
   left: -40%;
   top: -25px;
 
-  width: 170%;
+  width: 200%;
   height: 192px;
-}
-
-.header {
-  @apply sticky top-0 text-gray-300 shadow-md z-20;
 }
 
 .feature > h2 {
   font-weight: 400;
-}
-
-.gruppo {
-  font-family: 'Gruppo', cursive;
 }
 
 .feature img {
@@ -91,26 +92,32 @@ body {
 }
 
 .cta {
-  @apply py-2 px-6 rounded-md focus:outline-none focus:ring shadow-sm hover:shadow-none h-10 mr-4;
-
-  font-weight: 600;
-  color: #37393f;
-  background-color: #46bdc6;
+  @apply py-1.5 mt-1.5 px-10 rounded-sm focus:outline-none focus:ring shadow-sm hover:shadow-none h-8 text-midnight-800;
+  @apply bg-gradient-to-r from-green-400 to-primary-600;
+  @apply hover:bg-gradient-to-r hover:from-green-600 hover:to-primary-500 hover:text-midnight-50;
 }
 
-.cta:hover {
-  background-color: #00f1fd;
-}
+section.feature > h2 {
+  @apply text-4xl;
 
-.info-block {
-  @apply bg-blue-500;
-}
-
-section > h2.gruppo {
   border-bottom: 1px dashed #37393f;
+}
+
+section.feature:nth-of-type(odd) h2 {
+  @apply text-right;
+}
+
+.text-gradient,
+section.feature > h2 > span {
+  @apply bg-clip-text bg-gradient-to-r from-green-400  to-primary-600 font-header;
+  color: transparent;
 }
 
 .sl-overlay {
   background-color: #101010 !important;
   opacity: 96%;
+}
+
+footer a {
+  @apply text-gray-400 hover:text-white;
 }
