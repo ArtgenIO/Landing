@@ -63,7 +63,7 @@ bgStarsGeometry.setAttribute(
   new BufferAttribute(bgStarsPositions, 3),
 );
 
-bgStarsMaterial = new PointsMaterial({
+const bgStarsMaterial = new PointsMaterial({
   size: config.size,
   depthWrite: false,
   sizeAttenuation: true,
