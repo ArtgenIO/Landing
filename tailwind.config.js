@@ -39,11 +39,13 @@ delete customColors['blueGray'];
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig} */
 const config = {
   mode: 'jit',
-  purge: {
-    content: [join(__dirname, './src/**/*.{tsx,html}')],
-    safelist: ['simple-lightbox'],
-    safelistPatterns: [/^sl-/],
-  },
+  content: ['./src/**/*.{tsx,html}'],
+  safelist: [
+    'simple-lightbox',
+    {
+      pattern: /^sl-/,
+    },
+  ],
   theme: {
     fontFamily: {
       header: ['Bebas Neue', 'cursive'],
@@ -52,10 +54,7 @@ const config = {
     },
     colors: customColors,
   },
-  plugins: [
-    require('tailwindcss-textshadow'),
-    require('tailwindcss-scrollbar'),
-  ],
+  plugins: [require('tailwindcss-scrollbar')],
 };
 
 module.exports = config;

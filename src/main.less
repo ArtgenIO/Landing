@@ -1,50 +1,44 @@
 @charset "utf-8";
 
-@import url('https://fonts.googleapis.com/css?family=Bebas+Neue');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-@import 'simplelightbox/dist/simple-lightbox.css';
+@import './style/header.less';
+@import './style/hero.less';
+@import './style/solution.less';
 
 html,
 body {
   @apply scrollbar bg-midnight-800 scrollbar-thumb-midnight-400 scrollbar-track-midnight-700 scrollbar-w-2 overflow-x-hidden text-midnight-200;
 
-  background-image: url('img/squares.svg');
+  background-image: url('image/squares.svg');
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100%;
 }
 
-header {
-  @apply bg-midnight-900 fixed top-0 left-0 right-0 text-gray-300 shadow-md z-20;
-}
+main {
+  @apply container px-2 lg:px-32 lg:mx-auto;
 
-main h1 {
-  @apply text-midnight-200;
-}
-
-.hero {
-  background-color: #101010;
-  background-repeat: no-repeat;
-  background-size: cover;
+  h1 {
+    @apply text-midnight-200;
+  }
 }
 
 .brush {
   @apply block opacity-80 bg-no-repeat absolute;
 
-  background-image: url('./img/brush.svg');
-  background-size: 100% 200%;
+  background-image: url('./image/brush.svg');
+  background-size: 110% 240%;
   background-position: -20px center;
 
   z-index: -1;
-  left: -40%;
-  top: -25px;
+  left: -300px;
+  top: -50px;
 
-  width: 200%;
-  height: 192px;
+  width: 800px;
+  height: 300px;
 }
 
 .feature > h2 {
@@ -82,7 +76,7 @@ main h1 {
 }
 
 .cta {
-  @apply py-1.5 mt-1.5 px-10 rounded-sm focus:outline-none focus:ring shadow-sm hover:shadow-none h-8 text-midnight-800;
+  @apply py-1 mt-1 px-10 rounded-sm focus:outline-none focus:ring shadow-sm hover:shadow-none h-8 text-midnight-800;
   @apply bg-gradient-to-r from-green-400 to-primary-600;
   @apply hover:bg-gradient-to-r hover:from-green-600 hover:to-primary-500 hover:text-midnight-50;
 }
@@ -108,9 +102,16 @@ section.feature > h2 > span {
   opacity: 96%;
 }
 
-footer a {
-  @apply text-gray-400 hover:text-white;
-}
-footer h2 {
-  @apply text-xl;
+footer {
+  > div {
+    @apply pt-24 pb-48 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col;
+  }
+
+  a {
+    @apply text-gray-400 hover:text-white;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
 }

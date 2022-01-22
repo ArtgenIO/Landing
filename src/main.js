@@ -1,6 +1,5 @@
 // Based on the https://github.com/the-halfbloodprince/GalaxyM1199 project <3
 
-import Gumshoe from 'gumshoejs';
 import SimpleLightbox from 'simplelightbox';
 import {
   AdditiveBlending,
@@ -22,7 +21,7 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 
 const textureLoader = new TextureLoader();
 const shape = textureLoader.load(
-  new URL('img/particle.png', import.meta.url).toString(),
+  new URL('image/particle.png', import.meta.url).toString(),
 );
 
 // Canvas
@@ -218,19 +217,6 @@ const tick = () => {
 
 window.onload = () => {
   tick();
-  new Gumshoe('.menu a', {
-    events: true,
-  });
-
-  document.addEventListener(
-    'gumshoeActivate',
-    function (event) {
-      if (umami && event?.detail?.content?.name) {
-        umami(`scroll ${event.detail.content.name}`);
-      }
-    },
-    false,
-  );
 
   const lightbox = new SimpleLightbox('.feature > div > a', {
     overlay: true,
