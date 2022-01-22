@@ -1,0 +1,57 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.6/jscolor.min.js"></script>
+<div class="absolute top-24 left-7 z-50">
+  <h2>Inner</h2>
+  <input value="" data-jscolor="{}" id="inside" />
+
+  <h2>Outer</h2>
+  <input value="" data-jscolor="{}" id="outside" />
+</div>
+
+<script>
+  let insideCol = localStorage.getItem('inside') ?? '#80FFD4';
+  let insideEl = document.getElementById('inside');
+  insideEl.value = insideCol;
+
+  let outsideCol = localStorage.getItem('outside') ?? '#4F8AFF';
+  let outsideEl = document.getElementById('outside');
+  outsideEl.value = outsideCol;
+
+  const hook = rf => {
+    if (rf % 30 === 0) {
+      let changed = false;
+
+      if (insideEl.value != insideCol) {
+        insideCol = insideEl.value;
+        localStorage.setItem('inside', insideCol);
+        changed = true;
+      }
+
+      if (outsideEl.value != outsideCol) {
+        outsideCol = outsideEl.value;
+        localStorage.setItem('outside', outsideCol);
+        changed = true;
+      }
+
+      if (changed) {
+        cancelAnimationFrame(rf);
+        console.log('Cancel', rf);
+        tick = Galaxy(insideCol, outsideCol, hook);
+
+        tick();
+      }
+    }
+  };
+
+  let tick = Galaxy(insideCol, outsideCol, hook);
+  tick();
+</script>
+<!--
+
+  // Dark with light
+#5773FF
+#0B2919
+
+// Monochrome
+#87DBFF
+#080852
+ -->

@@ -3,7 +3,26 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+  .cover {
+    @apply absolute top-0 left-0 right-0 bottom-0 z-10;
+  }
+
   input {
-    @apply rounded-md p-1 md:p-2 md:text-xl md:w-1/2 text-center text-gray-300 font-code focus:ring-primary-400 focus:text-primary-400 w-full mx-auto;
+    @apply rounded-md p-1 md:p-2 md:text-xl md:w-1/2 text-center text-gray-300 font-code focus:ring-primary-400 focus:text-primary-400 w-full mx-auto bg-midnight-900;
+  }
+
+  .brush {
+    @apply opacity-90 bg-no-repeat absolute hidden lg:block;
+
+    background-image: url('../image/brush.svg');
+    background-size: 110% 240%;
+    background-position: -20px center;
+
+    z-index: -1;
+    left: -300px;
+    top: -50px;
+
+    width: 800px;
+    height: 300px;
   }
 }
